@@ -37,6 +37,7 @@ type QdiscAttrs struct {
 	Parent       uint32
 	Refcnt       uint32 // read only
 	IngressBlock *uint32
+	Statistics   *TcStats
 }
 
 func (q QdiscAttrs) String() string {

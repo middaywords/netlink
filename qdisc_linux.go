@@ -462,6 +462,8 @@ func (h *Handle) QdiscList(link Link) ([]Qdisc, error) {
 				ingressBlock := new(uint32)
 				*ingressBlock = native.Uint32(attr.Value)
 				base.IngressBlock = ingressBlock
+			case nl.TCA_STATS:
+				base.Statistics, err = parseTcStatsBase(attr.Value)
 			}
 		}
 		*qdisc.Attrs() = base
